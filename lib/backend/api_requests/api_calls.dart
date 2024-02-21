@@ -229,11 +229,12 @@ class BlogHomeCall {
   static Future<ApiCallResponse> call({
     String? path = 'filter[site_id][_eq]=2&filter[type][_eq]=3',
     String? limit = '8',
+    String? page = '0',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'blogHome',
       apiUrl:
-          'https://suhu-admin.tlabdemo.com/items/content_managements?limit=$limit&sort=-created_at&fields=*%2Ccreated_by.*&$path',
+          'https://suhu-admin.tlabdemo.com/items/content_managements?limit=$limit&sort=-created_at&fields=*%2Ccreated_by.*&$path&page=$page',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -257,11 +258,12 @@ class SearchPelatihanCall {
     String? pathDefault =
         'limit=10&filter[site_id][_eq]=2&filter[start_date][_gte]=2024-01-26&order=start_date',
     String? searchQuery = '',
+    String? page = '0',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'searchPelatihan',
       apiUrl:
-          'https://suhu-admin.tlabdemo.com/items/trainings?meta=*&$pathDefault&search=$searchQuery',
+          'https://suhu-admin.tlabdemo.com/items/trainings?meta=*&$pathDefault&search=$searchQuery&page=$page',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -301,6 +303,113 @@ class DetilPelatihanCall {
   }
 
   static List? dataDetailPelatihan(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class BlogDetailCall {
+  static Future<ApiCallResponse> call({
+    String? path = 'filter[slug][_eq]=',
+    String? slugValue =
+        'karisma-event-nusantara-2024-harus-beri-multiplier-effect-ke-masyarakat',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'blogDetail',
+      apiUrl:
+          'https://suhu-admin.tlabdemo.com/items/content_managements?fields=*%2Ccreated_by.*&$path$slugValue',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? photo(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].photo''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? content(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].content''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+}
+
+class HubungiKamiCall {
+  static Future<ApiCallResponse> call({
+    String? name = 'Nama Orang baru',
+    String? email = 'oke@oke.com',
+    String? subject = 'Nyoba aja sichh',
+    String? message = 'halo gaiesss',
+    String? phoneNumber = '089789786868',
+    String? siteId = '2',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "name": "$name",
+  "email": "$email",
+  "subject": "$subject",
+  "message": "$message",
+  "phone_number": "$phoneNumber",
+  "site_id": 2
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'hubungi kami',
+      apiUrl: 'https://suhu-admin.tlabdemo.com/items/messages',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class ServicesTentangKamiCall {
+  static Future<ApiCallResponse> call({
+    String? path =
+        '?fields=&search=&filter[site_id][_eq]=2&filter[type][_eq]=1',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'services tentang kami',
+      apiUrl: 'https://suhu-admin.tlabdemo.com/items/services$path',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,

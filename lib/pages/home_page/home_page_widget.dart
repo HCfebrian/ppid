@@ -1033,6 +1033,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         pelatihanDataHomeItem,
                                         r'''$.photo''',
                                       ).toString()),
+                                      slug: getJsonField(
+                                        pelatihanDataHomeItem,
+                                        r'''$.slug''',
+                                      ).toString(),
                                     );
                                   }),
                                 );

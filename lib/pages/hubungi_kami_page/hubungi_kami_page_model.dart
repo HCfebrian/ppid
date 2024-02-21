@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_componenet/footer_component/footer_component_widget.dart';
 import '/shared_componenet/top_nav/top_nav_widget.dart';
@@ -22,10 +23,12 @@ class HubungiKamiPageModel extends FlutterFlowModel<HubungiKamiPageWidget> {
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
+  // State field(s) for TextFieldContent widget.
+  FocusNode? textFieldContentFocusNode;
+  TextEditingController? textFieldContentController;
+  String? Function(BuildContext, String?)? textFieldContentControllerValidator;
+  // Stores action output result for [Backend Call - API (hubungi kami)] action in Button widget.
+  ApiCallResponse? apiResultlce;
   // Model for FooterComponent component.
   late FooterComponentModel footerComponentModel;
 
@@ -50,8 +53,8 @@ class HubungiKamiPageModel extends FlutterFlowModel<HubungiKamiPageWidget> {
     textFieldFocusNode3?.dispose();
     textController3?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    textFieldContentFocusNode?.dispose();
+    textFieldContentController?.dispose();
 
     footerComponentModel.dispose();
   }

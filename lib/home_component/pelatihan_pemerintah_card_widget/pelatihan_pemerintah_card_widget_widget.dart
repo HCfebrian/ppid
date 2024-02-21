@@ -12,11 +12,13 @@ class PelatihanPemerintahCardWidgetWidget extends StatefulWidget {
     required this.title,
     required this.content,
     required this.imagePath,
+    required this.slug,
   });
 
   final String? title;
   final String? content;
   final String? imagePath;
+  final String? slug;
 
   @override
   State<PelatihanPemerintahCardWidgetWidget> createState() =>
@@ -138,7 +140,7 @@ class _PelatihanPemerintahCardWidgetWidgetState
                   ),
                 ),
                 Container(
-                  height: 180.0,
+                  height: 160.0,
                   decoration: const BoxDecoration(),
                   child: Html(
                     data: widget.content!,
@@ -152,7 +154,15 @@ class _PelatihanPemerintahCardWidgetWidgetState
               children: [
                 FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('BlogDetailPage');
+                    context.pushNamed(
+                      'BlogDetailPage',
+                      queryParameters: {
+                        'slugBlogDetail': serializeParam(
+                          widget.slug,
+                          ParamType.String,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   text: 'Selengkapnya',
                   options: FFButtonOptions(

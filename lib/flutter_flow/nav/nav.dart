@@ -29,12 +29,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const HomePageWidget(),
+      errorBuilder: (context, state) => appStateNotifier.showSplashImage
+          ? Builder(
+              builder: (context) => Container(
+                color: Colors.transparent,
+                child: Image.asset(
+                  'assets/images/logo_PPID(1).png',
+                  fit: BoxFit.none,
+                ),
+              ),
+            )
+          : const HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const HomePageWidget(),
+          builder: (context, _) => appStateNotifier.showSplashImage
+              ? Builder(
+                  builder: (context) => Container(
+                    color: Colors.transparent,
+                    child: Image.asset(
+                      'assets/images/logo_PPID(1).png',
+                      fit: BoxFit.none,
+                    ),
+                  ),
+                )
+              : const HomePageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -49,7 +69,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'BlogDetailPage',
           path: '/blogDetailPage',
-          builder: (context, params) => const BlogDetailPageWidget(),
+          builder: (context, params) => BlogDetailPageWidget(
+            slugBlogDetail: params.getParam('slugBlogDetail', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'LayananPelatihanListPage',
@@ -75,7 +97,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'DetailPelatihanPage',
           path: '/detailPelatihanPage',
           builder: (context, params) => DetailPelatihanPageWidget(
-            slugId: params.getParam('slugId', ParamType.String),
+            slug: params.getParam('slug', ParamType.String),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

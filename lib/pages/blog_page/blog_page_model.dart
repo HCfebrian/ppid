@@ -1,3 +1,4 @@
+import '/components/page_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_componenet/footer_component/footer_component_widget.dart';
 import '/shared_componenet/top_nav/top_nav_widget.dart';
@@ -5,11 +6,17 @@ import 'blog_page_widget.dart' show BlogPageWidget;
 import 'package:flutter/material.dart';
 
 class BlogPageModel extends FlutterFlowModel<BlogPageWidget> {
+  ///  Local state fields for this page.
+
+  String pageNow = '0';
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Model for TopNav component.
   late TopNavModel topNavModel;
+  // Model for pageButton component.
+  late PageButtonModel pageButtonModel;
   // Model for FooterComponent component.
   late FooterComponentModel footerComponentModel;
 
@@ -18,6 +25,7 @@ class BlogPageModel extends FlutterFlowModel<BlogPageWidget> {
   @override
   void initState(BuildContext context) {
     topNavModel = createModel(context, () => TopNavModel());
+    pageButtonModel = createModel(context, () => PageButtonModel());
     footerComponentModel = createModel(context, () => FooterComponentModel());
   }
 
@@ -25,6 +33,7 @@ class BlogPageModel extends FlutterFlowModel<BlogPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     topNavModel.dispose();
+    pageButtonModel.dispose();
     footerComponentModel.dispose();
   }
 
