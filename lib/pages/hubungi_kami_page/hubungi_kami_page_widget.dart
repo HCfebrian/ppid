@@ -1,5 +1,4 @@
 import '/backend/api_requests/api_calls.dart';
-import '/flutter_flow/flutter_flow_static_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,7 +6,6 @@ import '/shared_componenet/footer_component/footer_component_widget.dart';
 import '/shared_componenet/top_nav/top_nav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mapbox_search/mapbox_search.dart';
 import 'hubungi_kami_page_model.dart';
 export 'hubungi_kami_page_model.dart';
 
@@ -83,12 +81,16 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'assets/images/Rectangle_83.png',
-                        height: 913.0,
-                        fit: BoxFit.cover,
+                    Container(
+                      width: MediaQuery.sizeOf(context).width * 0.35,
+                      decoration: const BoxDecoration(),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'assets/images/Rectangle_83.png',
+                          height: 913.0,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     Container(
@@ -662,22 +664,20 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
-                                    const FlutterFlowStaticMap(
-                                      location: LatLng(9.341465, -79.891704),
-                                      apiKey: 'ENTER_YOUR_MAPBOX_API_KEY_HERE',
-                                      style: MapBoxStyle.Light,
+                                    Container(
                                       width: 300.0,
                                       height: 300.0,
-                                      fit: BoxFit.cover,
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0.0),
-                                        bottomRight: Radius.circular(0.0),
-                                        topLeft: Radius.circular(0.0),
-                                        topRight: Radius.circular(0.0),
+                                      decoration: const BoxDecoration(),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=400&height=400&center=lonlat:110.351442,-7.81109&zoom=16.0726&marker=lonlat:110.35143526805234,-7.81118687423087;color:%23ff0000;size:medium&apiKey=9a8976c168bc4be997cd11ac6b51ad97',
+                                          width: 300.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                      zoom: 12,
-                                      tilt: 0,
-                                      rotation: 0,
                                     ),
                                   ],
                                 ),
