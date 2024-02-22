@@ -1,0 +1,20 @@
+stages:
+  - build
+  - deployontarget
+  # - cleanupcache
+
+imageBuild:
+  stage: build
+  only:
+   - flutterflow-release-dev
+  script:
+    - whoami
+    - ssh -P root@168.192.102.242 "cd /home/ubuntu/websuhu/ppidfe/flutterflow/riset-flutter-flow && git checkout flutterflow-release-dev && git pull origin flutterflow-release-dev &&
+                                    flutter pub get && flutter build web"
+
+deployOnTarget:
+  stage: deployontarget
+  only:
+   - flutterflow-release-dev
+  script:
+   - ssh -P root@168.192.102.242 "cd /home/ubuntu/websuhu/ppidfe/flutterflow/riset-flutter-flow && docker compose up -d"
