@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_static_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -36,8 +37,8 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
+    _model.textFieldContentController ??= TextEditingController();
+    _model.textFieldContentFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -464,9 +465,10 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
                                           alignment:
                                               const AlignmentDirectional(-1.0, 0.0),
                                           child: TextFormField(
-                                            controller: _model.textController4,
-                                            focusNode:
-                                                _model.textFieldFocusNode4,
+                                            controller: _model
+                                                .textFieldContentController,
+                                            focusNode: _model
+                                                .textFieldContentFocusNode,
                                             autofocus: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
@@ -536,7 +538,7 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
                                                 .bodyMedium,
                                             maxLines: null,
                                             validator: _model
-                                                .textController4Validator
+                                                .textFieldContentControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -544,8 +546,74 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
                                     ),
                                   ),
                                   FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      _model.apiResultlce =
+                                          await HubungiKamiCall.call(
+                                        name: valueOrDefault<String>(
+                                          _model.textController1.text,
+                                          'test',
+                                        ),
+                                        email: valueOrDefault<String>(
+                                          _model.textController2.text,
+                                          'test@email.com',
+                                        ),
+                                        subject: 'Message',
+                                        message: _model
+                                            .textFieldContentController.text,
+                                        phoneNumber: valueOrDefault<String>(
+                                          _model.textController3.text,
+                                          '085866349755',
+                                        ),
+                                      );
+                                      if ((_model.apiResultlce?.succeeded ??
+                                          true)) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Sukses Mengirim',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                const Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        setState(() {
+                                          _model.textController1?.clear();
+                                          _model.textController2?.clear();
+                                          _model.textController3?.clear();
+                                          _model.textFieldContentController
+                                              ?.clear();
+                                        });
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Gagal Mengirim',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                const Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .error,
+                                          ),
+                                        );
+                                      }
+
+                                      setState(() {});
                                     },
                                     text: 'Kirim',
                                     options: FFButtonOptions(

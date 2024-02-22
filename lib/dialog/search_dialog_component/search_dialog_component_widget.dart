@@ -1,10 +1,12 @@
+import '/backend/api_requests/api_calls.dart';
 import '/dialog/search_result_tile_component/search_result_tile_component_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'search_dialog_component_model.dart';
 export 'search_dialog_component_model.dart';
 
@@ -63,9 +65,9 @@ class _SearchDialogComponentWidgetState
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: SingleChildScrollView(
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -139,7 +141,14 @@ class _SearchDialogComponentWidgetState
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.textFieldPencarianController',
                                     const Duration(milliseconds: 500),
-                                    () => setState(() {}),
+                                    () async {
+                                      setState(() => _model
+                                          .listViewPecarianPagingController
+                                          ?.refresh());
+                                      await _model
+                                          .waitForOnePageForListViewPecarian(
+                                              minWait: 500);
+                                    },
                                   ),
                                   autofocus: true,
                                   obscureText: false,
@@ -167,46 +176,102 @@ class _SearchDialogComponentWidgetState
                         ),
                       ),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        wrapWithModel(
-                          model: _model.searchResultTileComponentModel,
-                          updateCallback: () => setState(() {}),
-                          child: const SearchResultTileComponentWidget(),
+                    Expanded(
+                      child: PagedListView<ApiPagingParams, dynamic>(
+                        pagingController: _model.setListViewPecarianController(
+                          (nextPageMarker) => SearchPelatihanCall.call(
+                            page: valueOrDefault<String>(
+                              nextPageMarker.nextPageNumber.toString(),
+                              '0',
+                            ),
+                            searchQuery:
+                                _model.textFieldPencarianController.text,
+                          ),
                         ),
-                      ],
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        reverse: false,
+                        scrollDirection: Axis.vertical,
+                        builderDelegate: PagedChildBuilderDelegate<dynamic>(
+                          // Customize what your widget looks like when it's loading the first page.
+                          firstPageProgressIndicatorBuilder: (_) => Center(
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Customize what your widget looks like when it's loading another page.
+                          newPageProgressIndicatorBuilder: (_) => Center(
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          itemBuilder: (context, _, dataPencarianIndex) {
+                            final dataPencarianItem = _model
+                                .listViewPecarianPagingController!
+                                .itemList![dataPencarianIndex];
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'DetailPelatihanPage',
+                                  queryParameters: {
+                                    'slug': serializeParam(
+                                      getJsonField(
+                                        dataPencarianItem,
+                                        r'''$.slug''',
+                                      ).toString(),
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              child: SearchResultTileComponentWidget(
+                                key: Key(
+                                    'Keyfgl_${dataPencarianIndex}_of_${_model.listViewPecarianPagingController!.itemList!.length}'),
+                                imagePath:
+                                    functions.addBaseUrlImage(getJsonField(
+                                  dataPencarianItem,
+                                  r'''$.thumbnail''',
+                                ).toString()),
+                                price: getJsonField(
+                                  dataPencarianItem,
+                                  r'''$.price''',
+                                ).toString(),
+                                title: getJsonField(
+                                  dataPencarianItem,
+                                  r'''$.title''',
+                                ).toString(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 50.0, 30.0),
-              child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
-                },
-                text: 'Hasil Lainnya',
-                options: FFButtonOptions(
-                  width: double.infinity,
-                  height: 44.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).buttomPrimaryDefaultColor,
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Plus Jakarta Sans',
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500,
-                      ),
-                  elevation: 2.0,
-                  borderSide: const BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ),

@@ -5,7 +5,16 @@ import 'search_result_tile_component_model.dart';
 export 'search_result_tile_component_model.dart';
 
 class SearchResultTileComponentWidget extends StatefulWidget {
-  const SearchResultTileComponentWidget({super.key});
+  const SearchResultTileComponentWidget({
+    super.key,
+    required this.imagePath,
+    required this.price,
+    required this.title,
+  });
+
+  final String? imagePath;
+  final String? price;
+  final String? title;
 
   @override
   State<SearchResultTileComponentWidget> createState() =>
@@ -60,7 +69,7 @@ class _SearchResultTileComponentWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        'https://picsum.photos/seed/83/600',
+                        widget.imagePath!,
                         width: 210.0,
                         height: 100.0,
                         fit: BoxFit.cover,
@@ -78,7 +87,7 @@ class _SearchResultTileComponentWidgetState
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Pelatihan/ Bimtek Penatausahaan\nKeuangan Daerah',
+                                widget.title!,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -88,7 +97,7 @@ class _SearchResultTileComponentWidgetState
                                     ),
                               ),
                               Text(
-                                'Rp 4.950.000',
+                                'Rp.${widget.price}',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -108,9 +117,9 @@ class _SearchResultTileComponentWidgetState
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               thickness: 1.0,
-              color: FlutterFlowTheme.of(context).secondaryText,
+              color: Color(0x6A57636C),
             ),
           ],
         ),

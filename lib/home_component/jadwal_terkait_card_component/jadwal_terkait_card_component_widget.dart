@@ -248,7 +248,7 @@ class _JadwalTerkaitCardComponentWidgetState
                       context.pushNamed(
                         'DetailPelatihanPage',
                         queryParameters: {
-                          'slugId': serializeParam(
+                          'slug': serializeParam(
                             widget.slug,
                             ParamType.String,
                           ),

@@ -22,10 +22,10 @@ export 'detail_pelatihan_page_model.dart';
 class DetailPelatihanPageWidget extends StatefulWidget {
   const DetailPelatihanPageWidget({
     super.key,
-    required this.slugId,
+    required this.slug,
   });
 
-  final String? slugId;
+  final String? slug;
 
   @override
   State<DetailPelatihanPageWidget> createState() =>
@@ -45,10 +45,7 @@ class _DetailPelatihanPageWidgetState extends State<DetailPelatihanPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.apiResulta12 = await DetilPelatihanCall.call(
-        slug: valueOrDefault<String>(
-          widget.slugId,
-          'pelatihan-sertifikasi-b',
-        ),
+        slug: widget.slug,
       );
       if ((_model.apiResulta12?.succeeded ?? true)) {
         setState(() {
