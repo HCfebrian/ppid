@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shared_componenet/footer_component/footer_component_widget.dart';
 import '/shared_componenet/top_nav/top_nav_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'hubungi_kami_page_model.dart';
 export 'hubungi_kami_page_model.dart';
 
@@ -50,15 +49,6 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -635,7 +625,7 @@ class _HubungiKamiPageWidgetState extends State<HubungiKamiPageWidget> {
                                             fontFamily: 'Plus Jakarta Sans',
                                             color: Colors.white,
                                             fontSize: 16.0,
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                       elevation: 2.0,
                                       borderSide: const BorderSide(

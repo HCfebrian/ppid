@@ -68,9 +68,15 @@ class _JadwalTerkaitCardComponentWidgetState
         height: 640.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 4.0,
+              color: Color(0x33000000),
+              offset: Offset(0.0, 2.0),
+            )
+          ],
           borderRadius: BorderRadius.circular(16.0),
           border: Border.all(
-            color: const Color(0xFFCDD5E0),
             width: 1.0,
           ),
         ),
@@ -102,20 +108,16 @@ class _JadwalTerkaitCardComponentWidgetState
                     child: Container(
                       height: 70.0,
                       decoration: const BoxDecoration(),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Text(
-                          widget.title!,
-                          maxLines: 2,
-                          style:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Inter',
-                                    color: const Color(0xFF111729),
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
+                      child: Text(
+                        widget.title!,
+                        maxLines: 2,
+                        style:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  fontFamily: 'Inter',
+                                  color: const Color(0xFF111729),
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                       ),
                     ),
                   ),
@@ -255,7 +257,7 @@ class _JadwalTerkaitCardComponentWidgetState
                         }.withoutNulls,
                       );
                     },
-                    text: 'Selengkapnya',
+                    text: 'Lihat Detail',
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 44.0,
@@ -270,7 +272,7 @@ class _JadwalTerkaitCardComponentWidgetState
                                 fontFamily: 'Plus Jakarta Sans',
                                 color: Colors.white,
                                 fontSize: 16.0,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.bold,
                               ),
                       elevation: 2.0,
                       borderSide: const BorderSide(
@@ -280,7 +282,7 @@ class _JadwalTerkaitCardComponentWidgetState
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                ],
+                ].divide(const SizedBox(height: 10.0)),
               ),
             ],
           ),

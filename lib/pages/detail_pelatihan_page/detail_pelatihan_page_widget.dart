@@ -13,7 +13,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'detail_pelatihan_page_model.dart';
@@ -77,15 +76,6 @@ class _DetailPelatihanPageWidgetState extends State<DetailPelatihanPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -1333,7 +1323,7 @@ class _DetailPelatihanPageWidgetState extends State<DetailPelatihanPageWidget> {
                                                           color: Colors.white,
                                                           fontSize: 16.0,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.bold,
                                                         ),
                                                 elevation: 2.0,
                                                 borderSide: const BorderSide(

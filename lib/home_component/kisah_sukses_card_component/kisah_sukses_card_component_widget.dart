@@ -102,7 +102,7 @@ class _KisahSuksesCardComponentWidgetState
                   alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                     child: Text(
                       widget.title!,
                       style: FlutterFlowTheme.of(context).titleMedium.override(
@@ -118,7 +118,7 @@ class _KisahSuksesCardComponentWidgetState
                   alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: Text(
                       widget.description!,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(

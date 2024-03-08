@@ -7,7 +7,6 @@ import '/shared_componenet/top_nav/top_nav_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'tentang_kami_page_model.dart';
@@ -62,15 +61,6 @@ class _TentangKamiPageWidgetState extends State<TentangKamiPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -292,135 +282,415 @@ class _TentangKamiPageWidgetState extends State<TentangKamiPageWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
-                                            width: 200.0,
-                                            height: 150.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(24.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(14.0),
-                                                child: Image.asset(
-                                                  'assets/images/suhu_tagline_color-01.png',
-                                                  width: 300.0,
-                                                  height: 200.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
+                                          Builder(
+                                            builder: (context) {
+                                              if (_model.indexCourosel == 0) {
+                                                return Container(
+                                                  width: 220.0,
+                                                  height: 160.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(24.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              14.0),
+                                                      child: Image.asset(
+                                                        'assets/images/suhu_tagline_color-01.png',
+                                                        width: 300.0,
+                                                        height: 200.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setState(() {
+                                                      _model.indexCourosel = 0;
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    width: 200.0,
+                                                    height: 150.0,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(24.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(14.0),
+                                                        child: Image.asset(
+                                                          'assets/images/suhu_tagline_color-01.png',
+                                                          width: 300.0,
+                                                          height: 200.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                            },
                                           ),
-                                          Container(
-                                            width: 200.0,
-                                            height: 150.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(24.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(14.0),
-                                                child: Image.asset(
-                                                  'assets/images/suhu_tagline_color-01(1).png',
-                                                  width: 300.0,
-                                                  height: 200.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
+                                          Builder(
+                                            builder: (context) {
+                                              if (_model.indexCourosel == 1) {
+                                                return Container(
+                                                  width: 220.0,
+                                                  height: 160.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(24.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              14.0),
+                                                      child: Image.asset(
+                                                        'assets/images/suhu_tagline_color-01(1).png',
+                                                        width: 300.0,
+                                                        height: 200.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setState(() {
+                                                      _model.indexCourosel = 1;
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    width: 200.0,
+                                                    height: 150.0,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(24.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(14.0),
+                                                        child: Image.asset(
+                                                          'assets/images/suhu_tagline_color-01(1).png',
+                                                          width: 300.0,
+                                                          height: 200.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                            },
                                           ),
-                                          Container(
-                                            width: 200.0,
-                                            height: 150.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(24.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(14.0),
-                                                child: Image.asset(
-                                                  'assets/images/suhu_tagline_color-01(2).png',
-                                                  width: 300.0,
-                                                  height: 200.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
+                                          Builder(
+                                            builder: (context) {
+                                              if (_model.indexCourosel == 2) {
+                                                return Container(
+                                                  width: 220.0,
+                                                  height: 160.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(24.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              14.0),
+                                                      child: Image.asset(
+                                                        'assets/images/suhu_tagline_color-01(2).png',
+                                                        width: 300.0,
+                                                        height: 200.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setState(() {
+                                                      _model.indexCourosel = 2;
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    width: 200.0,
+                                                    height: 150.0,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(24.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(14.0),
+                                                        child: Image.asset(
+                                                          'assets/images/suhu_tagline_color-01(2).png',
+                                                          width: 300.0,
+                                                          height: 200.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                            },
                                           ),
-                                          Container(
-                                            width: 200.0,
-                                            height: 150.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(24.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(14.0),
-                                                child: Image.asset(
-                                                  'assets/images/suhu_tagline_color-01(3).png',
-                                                  width: 300.0,
-                                                  height: 200.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
+                                          Builder(
+                                            builder: (context) {
+                                              if (_model.indexCourosel == 3) {
+                                                return Container(
+                                                  width: 220.0,
+                                                  height: 160.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(24.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              14.0),
+                                                      child: Image.asset(
+                                                        'assets/images/logo_PPID.png',
+                                                        width: 300.0,
+                                                        height: 200.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setState(() {
+                                                      _model.indexCourosel = 3;
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    width: 200.0,
+                                                    height: 150.0,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(24.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(14.0),
+                                                        child: Image.asset(
+                                                          'assets/images/logo_PPID.png',
+                                                          width: 300.0,
+                                                          height: 200.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                            },
                                           ),
-                                          Container(
-                                            width: 200.0,
-                                            height: 150.0,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(24.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(14.0),
-                                                child: Image.asset(
-                                                  'assets/images/suhu_tagline_color-01(4).png',
-                                                  width: 300.0,
-                                                  height: 200.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
+                                          Builder(
+                                            builder: (context) {
+                                              if (_model.indexCourosel == 4) {
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setState(() {
+                                                      _model.indexCourosel = 4;
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    width: 220.0,
+                                                    height: 160.0,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(24.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(14.0),
+                                                        child: Image.asset(
+                                                          'assets/images/suhu_tagline_color-01(4).png',
+                                                          width: 300.0,
+                                                          height: 200.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return Container(
+                                                  width: 200.0,
+                                                  height: 150.0,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(24.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              14.0),
+                                                      child: Image.asset(
+                                                        'assets/images/suhu_tagline_color-01(4).png',
+                                                        width: 300.0,
+                                                        height: 200.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                            },
                                           ),
                                         ],
                                       ),
@@ -448,45 +718,135 @@ class _TentangKamiPageWidgetState extends State<TentangKamiPageWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Container(
-                                                width: 20.0,
-                                                height: 20.0,
-                                                decoration: const BoxDecoration(
-                                                  color: Color(0xFFDDB439),
-                                                  shape: BoxShape.circle,
-                                                ),
+                                              Builder(
+                                                builder: (context) {
+                                                  if (_model.indexCourosel ==
+                                                      0) {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFDDB439),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFE3E8EF),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  }
+                                                },
                                               ),
-                                              Container(
-                                                width: 20.0,
-                                                height: 20.0,
-                                                decoration: const BoxDecoration(
-                                                  color: Color(0xFFE3E8EF),
-                                                  shape: BoxShape.circle,
-                                                ),
+                                              Builder(
+                                                builder: (context) {
+                                                  if (_model.indexCourosel ==
+                                                      0) {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFDDB439),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFE3E8EF),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  }
+                                                },
                                               ),
-                                              Container(
-                                                width: 20.0,
-                                                height: 20.0,
-                                                decoration: const BoxDecoration(
-                                                  color: Color(0xFFE3E8EF),
-                                                  shape: BoxShape.circle,
-                                                ),
+                                              Builder(
+                                                builder: (context) {
+                                                  if (_model.indexCourosel ==
+                                                      0) {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFDDB439),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFE3E8EF),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  }
+                                                },
                                               ),
-                                              Container(
-                                                width: 20.0,
-                                                height: 20.0,
-                                                decoration: const BoxDecoration(
-                                                  color: Color(0xFFE3E8EF),
-                                                  shape: BoxShape.circle,
-                                                ),
+                                              Builder(
+                                                builder: (context) {
+                                                  if (_model.indexCourosel ==
+                                                      0) {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFDDB439),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFE3E8EF),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  }
+                                                },
                                               ),
-                                              Container(
-                                                width: 20.0,
-                                                height: 20.0,
-                                                decoration: const BoxDecoration(
-                                                  color: Color(0xFFE3E8EF),
-                                                  shape: BoxShape.circle,
-                                                ),
+                                              Builder(
+                                                builder: (context) {
+                                                  if (_model.indexCourosel ==
+                                                      0) {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFDDB439),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFE3E8EF),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                    );
+                                                  }
+                                                },
                                               ),
                                             ],
                                           ),
@@ -510,7 +870,7 @@ class _TentangKamiPageWidgetState extends State<TentangKamiPageWidget> {
                                           Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
-                                                0.71,
+                                                0.72,
                                             decoration: const BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -527,9 +887,9 @@ class _TentangKamiPageWidgetState extends State<TentangKamiPageWidget> {
                                                         fontFamily: 'Inter',
                                                         color:
                                                             const Color(0xFF677489),
-                                                        fontSize: 32.0,
+                                                        fontSize: 19.0,
                                                         fontWeight:
-                                                            FontWeight.bold,
+                                                            FontWeight.normal,
                                                       ),
                                                 ),
                                                 Text(
