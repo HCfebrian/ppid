@@ -70,8 +70,8 @@ class _JadwalTerkaitCardComponentWidgetState
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: const [
             BoxShadow(
-              blurRadius: 4.0,
-              color: Color(0x33000000),
+              blurRadius: 2.0,
+              color: Color(0x19000000),
               offset: Offset(0.0, 2.0),
             )
           ],

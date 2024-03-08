@@ -1218,21 +1218,27 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           final dataListPartnerItem =
                                               dataListPartner[
                                                   dataListPartnerIndex];
-                                          return Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                functions.addBaseUrlImage(
-                                                    getJsonField(
-                                                  dataListPartnerItem,
-                                                  r'''$.logo''',
-                                                ).toString()),
-                                                height: 100.0,
-                                                fit: BoxFit.scaleDown,
+                                          return Container(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            decoration: const BoxDecoration(),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.network(
+                                                  functions.addBaseUrlImage(
+                                                      getJsonField(
+                                                    dataListPartnerItem,
+                                                    r'''$.logo''',
+                                                  ).toString()),
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  fit: BoxFit.contain,
+                                                ),
                                               ),
                                             ),
                                           );
@@ -1272,7 +1278,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
-                                'assets/images/CTA_Konsultasi.png',
+                                'assets/images/CTA_Konsultasi(1).png',
                                 width: 300.0,
                                 height: 200.0,
                                 fit: BoxFit.cover,

@@ -49,7 +49,7 @@ class _LayananPelatihanListPageWidgetState
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(
@@ -61,104 +61,108 @@ class _LayananPelatihanListPageWidgetState
                   updateCallback: () => setState(() {}),
                   child: const TopNavWidget(),
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 0.09,
-                      height: 10.0,
-                      decoration: const BoxDecoration(),
-                    ),
-                    Expanded(
-                      child: Container(
-                        height: 450.0,
+                Container(
+                  decoration: const BoxDecoration(),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.09,
+                        height: 10.0,
                         decoration: const BoxDecoration(),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 12.0),
-                                  child: Text(
-                                    'Learn More, Give More',
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: const Color(0xFFDDB439),
-                                          fontSize: 20.0,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  constraints: const BoxConstraints(
-                                    maxWidth: 600.0,
-                                  ),
-                                  decoration: const BoxDecoration(),
-                                  child: Padding(
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 450.0,
+                          decoration: const BoxDecoration(),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 24.0),
+                                        0.0, 0.0, 0.0, 12.0),
                                     child: Text(
-                                      'Pelatihan Pemerintahan',
+                                      'Learn More, Give More',
                                       style: FlutterFlowTheme.of(context)
-                                          .displaySmall
+                                          .titleLarge
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .buttomPrimaryDefaultColor,
-                                            fontSize: 40.0,
-                                            fontWeight: FontWeight.bold,
+                                            color: const Color(0xFFDDB439),
+                                            fontSize: 20.0,
                                           ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  constraints: const BoxConstraints(
-                                    maxWidth: 600.0,
-                                  ),
-                                  decoration: const BoxDecoration(),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 24.0),
-                                    child: Text(
-                                      'Pelatihan Pemerintahan by SUHU telah berpengalaman dan sukses menyelenggarakan berbagai program pelatihan & sertifikasi dengan banyak instansi di seluruh Indonesia',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: const Color(0xFF677489),
-                                            fontWeight: FontWeight.normal,
-                                          ),
+                                  Container(
+                                    constraints: const BoxConstraints(
+                                      maxWidth: 600.0,
+                                    ),
+                                    decoration: const BoxDecoration(),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 24.0),
+                                      child: Text(
+                                        'Pelatihan Pemerintahan',
+                                        style: FlutterFlowTheme.of(context)
+                                            .displaySmall
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: FlutterFlowTheme.of(
+                                                      context)
+                                                  .buttomPrimaryDefaultColor,
+                                              fontSize: 40.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/asset_pelatihan_1.png',
-                                width: 440.0,
-                                height: 270.0,
-                                fit: BoxFit.cover,
+                                  Container(
+                                    constraints: const BoxConstraints(
+                                      maxWidth: 600.0,
+                                    ),
+                                    decoration: const BoxDecoration(),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 24.0),
+                                      child: Text(
+                                        'Pelatihan Pemerintahan by SUHU telah berpengalaman dan sukses menyelenggarakan berbagai program pelatihan & sertifikasi dengan banyak instansi di seluruh Indonesia',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: const Color(0xFF677489),
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/asset_pelatihan_1.png',
+                                  width: 440.0,
+                                  height: 270.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 0.09,
-                      height: 10.0,
-                      decoration: const BoxDecoration(),
-                    ),
-                  ],
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.09,
+                        height: 10.0,
+                        decoration: const BoxDecoration(),
+                      ),
+                    ],
+                  ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -322,7 +326,7 @@ class _LayananPelatihanListPageWidgetState
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                'Hasil dari Jenis “Online” dan Pelatihan “PELATIHAN/BIMTEK IT PEMDA”',
+                                'Semua Pelatihan',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

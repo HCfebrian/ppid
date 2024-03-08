@@ -145,28 +145,49 @@ class _LayananCardDialogWidgetState extends State<LayananCardDialogWidget> {
                               ),
                             ),
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Lihat Selengkapnya',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                              Icon(
-                                Icons.chevron_right_sharp,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                size: 24.0,
-                              ),
-                            ],
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('LayananPelatihanListPage');
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    Navigator.pop(context);
+
+                                    context
+                                        .pushNamed('LayananPelatihanListPage');
+                                  },
+                                  child: Text(
+                                    'Lihat Selengkapnya',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.chevron_right_sharp,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  size: 24.0,
+                                ),
+                              ],
+                            ),
                           ),
                         ]
                             .addToStart(const SizedBox(height: 20.0))

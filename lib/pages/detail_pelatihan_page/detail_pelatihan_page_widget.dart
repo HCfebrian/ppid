@@ -195,7 +195,11 @@ class _DetailPelatihanPageWidgetState extends State<DetailPelatihanPageWidget> {
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontSize: 16.0,
+                                                        ),
                                               ),
                                             ),
                                             Padding(
@@ -1081,357 +1085,474 @@ class _DetailPelatihanPageWidgetState extends State<DetailPelatihanPageWidget> {
                                         60.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
-                                          0.28,
+                                          0.25,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
                                         children: [
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 20.0),
+                                                    10.0, 10.0, 10.0, 10.0),
                                             child: Container(
-                                              width: 100.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFE9F7F1),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: const [
+                                                  BoxShadow(
+                                                    blurRadius: 2.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(0.0, 0.0),
+                                                  )
+                                                ],
                                               ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    'Online',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color:
-                                                              const Color(0xFF25AB73),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 20.0),
-                                            child: Text(
-                                              getJsonField(
-                                                DetilPelatihanCall
-                                                        .dataDetailPelatihan(
-                                                  (_model.apiResulta12
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )!
-                                                    .first,
-                                                r'''$.title''',
-                                              ).toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        fontSize: 20.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 16.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Icon(
-                                                  Icons.calendar_month,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 24.0,
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Waktu Pelaksanaan: ',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color:
-                                                              const Color(0xFF677489),
-                                                          fontSize: 16.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '1 Januari - 3 Januari 2023',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: Colors.black,
-                                                        fontSize: 16.0,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 12.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Icon(
-                                                  Icons.calendar_month,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 24.0,
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Jumlah Sesi: ',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color:
-                                                              const Color(0xFF677489),
-                                                          fontSize: 16.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '${getJsonField(
-                                                    DetilPelatihanCall
-                                                        .dataDetailPelatihan(
-                                                      (_model.apiResulta12
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )?.first,
-                                                    r'''$.session''',
-                                                  ).toString()}  Sesi pertemuan',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: Colors.black,
-                                                        fontSize: 16.0,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          const Divider(
-                                            thickness: 1.0,
-                                            color: Color(0xFFCDD5E0),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 8.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 20.0),
-                                                  child: Text(
-                                                    'RP.${getJsonField(
-                                                      DetilPelatihanCall
-                                                          .dataDetailPelatihan(
-                                                        (_model.apiResulta12
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )?.first,
-                                                      r'''$.price''',
-                                                    ).toString()}',
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .headlineMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .buttomPrimaryDefaultColor,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 50.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: 'Selengkapnya',
-                                              options: FFButtonOptions(
-                                                width: double.infinity,
-                                                height: 44.0,
+                                              child: Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: FlutterFlowTheme.of(
-                                                        context)
-                                                    .buttomPrimaryDefaultColor,
-                                                textStyle:
+                                                        10.0, 10.0, 10.0, 10.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      20.0),
+                                                          child: Container(
+                                                            width: 100.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: const Color(
+                                                                  0xFFE9F7F1),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                            child: Align(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child: Text(
+                                                                  'Online',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: const Color(
+                                                                            0xFF25AB73),
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          DetilPelatihanCall
+                                                                  .dataDetailPelatihan(
+                                                            (_model.apiResulta12
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                              .first,
+                                                          r'''$.title''',
+                                                        ).toString(),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 20.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  16.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Icon(
+                                                            Icons
+                                                                .calendar_month,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 24.0,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'Waktu Pelaksanaan: ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    color: const Color(
+                                                                        0xFF677489),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            '1 Januari - 3 Januari 2023',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  12.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Icon(
+                                                            Icons
+                                                                .calendar_month,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 24.0,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'Jumlah Sesi: ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    color: const Color(
+                                                                        0xFF677489),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            '${getJsonField(
+                                                              DetilPelatihanCall
+                                                                  .dataDetailPelatihan(
+                                                                (_model.apiResulta12
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.first,
+                                                              r'''$.session''',
+                                                            ).toString()}  Sesi pertemuan',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    const Divider(
+                                                      thickness: 1.0,
+                                                      color: Color(0xFFCDD5E0),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        20.0),
+                                                            child: Text(
+                                                              'RP.${getJsonField(
+                                                                DetilPelatihanCall
+                                                                    .dataDetailPelatihan(
+                                                                  (_model.apiResulta12
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first,
+                                                                r'''$.price''',
+                                                              ).toString()}',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .buttomPrimaryDefaultColor,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    FFButtonWidget(
+                                                      onPressed: () {
+                                                        print(
+                                                            'Button pressed ...');
+                                                      },
+                                                      text: 'Selengkapnya',
+                                                      options: FFButtonOptions(
+                                                        width: double.infinity,
+                                                        height: 44.0,
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .buttomPrimaryDefaultColor,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                        elevation: 2.0,
+                                                        borderSide: const BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 0.0),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 32.0, 0.0, 16.0),
+                                              child: Text(
+                                                'Bagikan Event Ini',
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .titleSmall
+                                                        .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color: Colors.white,
+                                                          fontFamily: 'Inter',
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
-                                                elevation: 2.0,
-                                                borderSide: const BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
                                               ),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 20.0),
-                                            child: Text(
-                                              'Bagikan Event Ini',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: const Color(0xFF111729),
-                                                    fontSize: 16.0,
-                                                    fontWeight: FontWeight.bold,
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                FlutterFlowIconButton(
+                                                  borderColor: FlutterFlowTheme
+                                                          .of(context)
+                                                      .buttonPrimaryHoverColor,
+                                                  borderRadius: 8.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
+                                                  icon: const Icon(
+                                                    Icons.link,
+                                                    color: Color(0xFF0F4C89),
+                                                    size: 24.0,
                                                   ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                                FlutterFlowIconButton(
+                                                  borderColor: FlutterFlowTheme
+                                                          .of(context)
+                                                      .buttonPrimaryHoverColor,
+                                                  borderRadius: 8.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
+                                                  icon: FaIcon(
+                                                    FontAwesomeIcons.whatsapp,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .buttomPrimaryDefaultColor,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                                FlutterFlowIconButton(
+                                                  borderColor: FlutterFlowTheme
+                                                          .of(context)
+                                                      .buttonPrimaryHoverColor,
+                                                  borderRadius: 8.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
+                                                  icon: FaIcon(
+                                                    FontAwesomeIcons
+                                                        .facebookSquare,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .buttomPrimaryDefaultColor,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                                FlutterFlowIconButton(
+                                                  borderColor: FlutterFlowTheme
+                                                          .of(context)
+                                                      .buttonPrimaryHoverColor,
+                                                  borderRadius: 8.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
+                                                  icon: FaIcon(
+                                                    FontAwesomeIcons
+                                                        .telegramPlane,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .buttomPrimaryDefaultColor,
+                                                    size: 24.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                              ].divide(const SizedBox(width: 32.0)),
                                             ),
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              FlutterFlowIconButton(
-                                                borderColor: FlutterFlowTheme
-                                                        .of(context)
-                                                    .buttonPrimaryHoverColor,
-                                                borderRadius: 8.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 40.0,
-                                                icon: const Icon(
-                                                  Icons.link,
-                                                  color: Color(0xFF0F4C89),
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                              ),
-                                              FlutterFlowIconButton(
-                                                borderColor: FlutterFlowTheme
-                                                        .of(context)
-                                                    .buttonPrimaryHoverColor,
-                                                borderRadius: 8.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 40.0,
-                                                icon: FaIcon(
-                                                  FontAwesomeIcons.whatsapp,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .buttomPrimaryDefaultColor,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                              ),
-                                              FlutterFlowIconButton(
-                                                borderColor: FlutterFlowTheme
-                                                        .of(context)
-                                                    .buttonPrimaryHoverColor,
-                                                borderRadius: 8.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 40.0,
-                                                icon: FaIcon(
-                                                  FontAwesomeIcons
-                                                      .facebookSquare,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .buttomPrimaryDefaultColor,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                              ),
-                                              FlutterFlowIconButton(
-                                                borderColor: FlutterFlowTheme
-                                                        .of(context)
-                                                    .buttonPrimaryHoverColor,
-                                                borderRadius: 8.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 40.0,
-                                                icon: FaIcon(
-                                                  FontAwesomeIcons
-                                                      .telegramPlane,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .buttomPrimaryDefaultColor,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                              ),
-                                            ].divide(const SizedBox(width: 20.0)),
                                           ),
                                         ],
                                       ),
