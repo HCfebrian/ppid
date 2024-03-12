@@ -100,6 +100,13 @@ class _HomeCarouselComponentWidgetState
                                 alignment: const Alignment(0.0, 0.0),
                               ),
                             ),
+                            Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              decoration: const BoxDecoration(
+                                color: Color(0x7E000000),
+                              ),
+                            ),
                             Align(
                               alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Container(
@@ -199,7 +206,7 @@ class _HomeCarouselComponentWidgetState
                                                       color: Colors.white,
                                                       fontSize: 16.0,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                          FontWeight.bold,
                                                     ),
                                             elevation: 2.0,
                                             borderSide: const BorderSide(

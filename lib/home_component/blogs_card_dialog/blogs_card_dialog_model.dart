@@ -1,14 +1,12 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'top_nav_widget.dart' show TopNavWidget;
+import 'blogs_card_dialog_widget.dart' show BlogsCardDialogWidget;
 import 'package:flutter/material.dart';
 
-class TopNavModel extends FlutterFlowModel<TopNavWidget> {
+class BlogsCardDialogModel extends FlutterFlowModel<BlogsCardDialogWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for MouseRegion widget.
-  bool mouseRegionHovered1 = false;
-  // State field(s) for MouseRegion widget.
-  bool mouseRegionHovered2 = false;
+  bool mouseRegionHovered = false;
 
   /// Initialization and disposal methods.
 

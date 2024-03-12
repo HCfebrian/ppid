@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/dialog/search_empty_component/search_empty_component_widget.dart';
 import '/dialog/search_result_tile_component/search_result_tile_component_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -225,7 +226,11 @@ class _SearchDialogComponentWidgetState
                               ),
                             ),
                           ),
-
+                          noItemsFoundIndicatorBuilder: (_) =>
+                              SearchEmptyComponentWidget(
+                            searchQuery:
+                                _model.textFieldPencarianController.text,
+                          ),
                           itemBuilder: (context, _, dataPencarianIndex) {
                             final dataPencarianItem = _model
                                 .listViewPecarianPagingController!

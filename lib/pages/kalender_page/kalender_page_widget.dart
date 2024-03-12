@@ -6,7 +6,6 @@ import '/kalender_page_component/list_kelas_terdekat_component/list_kelas_terdek
 import '/shared_componenet/footer_component/footer_component_widget.dart';
 import '/shared_componenet/top_nav/top_nav_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'kalender_page_model.dart';
 export 'kalender_page_model.dart';
 
@@ -39,15 +38,6 @@ class _KalenderPageWidgetState extends State<KalenderPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

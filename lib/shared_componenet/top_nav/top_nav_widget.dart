@@ -2,6 +2,9 @@ import '/dialog/search_dialog_component/search_dialog_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/home_component/blogs_card_dialog/blogs_card_dialog_widget.dart';
+import '/home_component/layanan_card_dialog/layanan_card_dialog_widget.dart';
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'top_nav_model.dart';
@@ -118,86 +121,162 @@ class _TopNavWidgetState extends State<TopNavWidget> {
                         ),
                       ),
                     ),
-                    MouseRegion(
-                      opaque: false,
-                      cursor: MouseCursor.defer ?? MouseCursor.defer,
-                      onEnter: ((event) async {
-                        setState(() => _model.mouseRegionHovered = true);
-                      }),
-                      onExit: ((event) async {
-                        setState(() => _model.mouseRegionHovered = false);
-                      }),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('LayananPelatihanListPage');
-                        },
-                        child: Container(
-                          height: 50.0,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Layanan',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelLarge
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        color: const Color(0xFF57636C),
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                    Builder(
+                      builder: (context) => MouseRegion(
+                        opaque: false,
+                        cursor: MouseCursor.defer ?? MouseCursor.defer,
+                        onEnter: ((event) async {
+                          setState(() => _model.mouseRegionHovered1 = true);
+                          await showAlignedDialog(
+                            context: context,
+                            isGlobal: false,
+                            avoidOverflow: false,
+                            targetAnchor: const AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            followerAnchor: const AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            builder: (dialogContext) {
+                              return const Material(
+                                color: Colors.transparent,
+                                child: WebViewAware(
+                                  child: LayananCardDialogWidget(),
                                 ),
-                              ],
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+                        }),
+                        onExit: ((event) async {
+                          setState(() => _model.mouseRegionHovered1 = false);
+                        }),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('LayananPelatihanListPage');
+                          },
+                          child: Container(
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12.0),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Layanan',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: const Color(0xFF57636C),
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                  Container(
+                                    width: 5.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('BlogPage');
-                      },
-                      child: Container(
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Blog',
-                                style: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: const Color(0xFF57636C),
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
+                    Builder(
+                      builder: (context) => MouseRegion(
+                        opaque: false,
+                        cursor: MouseCursor.defer ?? MouseCursor.defer,
+                        onEnter: ((event) async {
+                          setState(() => _model.mouseRegionHovered2 = true);
+                          await showAlignedDialog(
+                            context: context,
+                            isGlobal: false,
+                            avoidOverflow: false,
+                            targetAnchor: const AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            followerAnchor: const AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            builder: (dialogContext) {
+                              return const Material(
+                                color: Colors.transparent,
+                                child: WebViewAware(
+                                  child: BlogsCardDialogWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+                        }),
+                        onExit: ((event) async {
+                          setState(() => _model.mouseRegionHovered2 = false);
+                        }),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('BlogPage');
+                          },
+                          child: Container(
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12.0),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Blog',
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: const Color(0xFF57636C),
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                  Container(
+                                    width: 5.0,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                     ),
+                                  ),
+                                  Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
@@ -308,7 +387,7 @@ class _TopNavWidgetState extends State<TopNavWidget> {
                                   fontFamily: 'Plus Jakarta Sans',
                                   color: Colors.white,
                                   fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.bold,
                                 ),
                         elevation: 2.0,
                         borderSide: const BorderSide(
